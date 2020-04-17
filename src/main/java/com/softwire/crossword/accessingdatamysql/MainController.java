@@ -18,18 +18,18 @@ public class MainController {
     @PostMapping(path="/add") // Map ONLY POST Requests
     public @ResponseBody
     String addNewClue(@RequestParam String clue,
-                      @RequestParam String description
-                      /*RequestParam String topic,
+                      @RequestParam String answer,
+                      @RequestParam String topic,
                       @RequestParam String style,
                       @RequestParam String author,
-                      @RequestParam Integer difficulty*/) {
+                      @RequestParam Integer difficulty) {
         Clue newClue = new Clue();
         newClue.setClue(clue);
-        newClue.setDescription(description);
-        /*newClue.setTopic(topic);
+        newClue.setClue(answer);
+        newClue.setTopic(topic);
         newClue.setStyle(style);
         newClue.setAuthor(author);
-        newClue.setDifficulty(difficulty);*/
+        newClue.setDifficulty(difficulty);
         clueRepository.save(newClue);
         return "Saved";
     }

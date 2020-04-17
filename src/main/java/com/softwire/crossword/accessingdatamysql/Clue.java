@@ -13,7 +13,7 @@ public class Clue {
 
     private String clue;
 
-    private String description;
+    private String answer;
 
     private String topic;
 
@@ -39,12 +39,12 @@ public class Clue {
         this.clue = clue;
     }
 
-    public String getDescription() {
-        return description;
+    public String getAnswer() {
+        return answer;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 
     public String getTopic() {
