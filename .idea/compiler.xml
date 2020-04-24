@@ -7,14 +7,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="crossword" />
+        <module name="SoftwireCrossword" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="crossword" target="14" />
+      <module name="SoftwireCrossword" target="14" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="SoftwireCrossword" options="-parameters" />
       <module name="crossword" options="-parameters" />
     </option>
   </component>
