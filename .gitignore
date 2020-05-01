@@ -132,3 +132,6 @@ buildNumber.properties
 
 
 src/main/resources/application.properties
+
+# intellij folder
+.idea/

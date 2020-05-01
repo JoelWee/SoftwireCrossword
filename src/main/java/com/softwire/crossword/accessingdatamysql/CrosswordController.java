@@ -11,12 +11,29 @@ import java.util.Optional;
 public class CrosswordController {
     @Autowired
     private CrosswordRepository crosswordRepository;
+    @Autowired
+    private ClueRepository clueRepository;
+    @Autowired
+    private CrosswordClueMapRepository crosswordClueMapRepository;
 
     @GetMapping(path = "/crosswords")
     public String crosswords(Model model){
         var crosswords = crosswordRepository.findAll();
         model.addAttribute("crosswords", crosswords);
         return "crosswords";
+    }
+
+    @GetMapping(path = "/crosswords/{id}")
+    public String crossword(Model model, @PathVariable int id) {
+        Crossword crossword = crosswordRepository.findById(id).get();
+        var crosswordClues = crossword.getCrosswordClues().stream().toArray();
+        var allClues = clueRepository.findAll();
+
+        model.addAttribute("crossword", crossword);
+        model.addAttribute("crosswordClues", crosswordClues);
+        model.addAttribute("allClues", allClues);
+
+        return "crossword";
     }
 
     @ModelAttribute("crosswords")

@@ -1,0 +1,53 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+
+    <title>Softwire Crossword Submission</title>
+    <meta name="description" content="TSoftwire Crossword Submission">
+    <meta name="author" content="Joel Wee and Lucas Nogueira">
+
+</head>
+
+<body>
+<section>
+    <h1>Crossword <span th:text="${crossword.name}"></span></h1>
+    <table>
+        <thead>
+            <th>Clue</th>
+            <th>Answer</th>
+            <th>Row</th>
+            <th>Col</th>
+            <th>Is Horizontal</th>
+        </thead>
+        <tbody>
+            <tr th:each="clueMap : ${crosswordClues}">
+                <td th:text="${clueMap.clue.clue}"/>
+                <td th:text="${clueMap.clue.answer}"/>
+                <td th:text="${clueMap.startRow}"/>
+                <td th:text="${clueMap.startCol}"/>
+                <td th:text="${clueMap.isHorizontal}"/>
+            </tr>
+        </tbody>
+    </table>
+</section>
+<section>
+    <h1>Add a new clue:</h1>
+    <form target="#" th:action="'http://localhost:8080/api/crosswords/' + ${crossword.id} +'/clue'" method="POST">
+        <label for="clue">Select a clue:</label>
+        <select id="clue" name="clueId">
+            <option th:each="clue : ${allClues}" th:value="${clue.id}"
+                    th:text="'Description: ' + ${clue.clue} + ', Answer: ' + ${clue.answer}"/>
+        </select><br>
+        <label for="row">Row:</label>
+        <input type="number" id="row" name="row"><br>
+        <label for="col">Column:</label>
+        <input type="number" id="col" name="col"><br>
+        <label for="isHorizontal">Is Horizontal:</label>
+        <input type="checkbox" id="isHorizontal" name="isHorizontal" value="isHorizontal"><br>
+        <button type="submit">Add</button>
+    </form>
+</section>
+</body>
+</html>

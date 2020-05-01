@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="@database-joel-lucas.cd9p2xd1ldba.eu-west-2.rds.amazonaws.com" uuid="096a8518-2cb0-4e29-ad4b-0c7a1862ef8f">
+    <data-source source="LOCAL" name="jdbc:mysql:// database-joel-lucas.cpniwhvlthjs.eu-west-2.rds.amazonaws.com:3306/crossword" uuid="7de9ba67-e43e-4cc9-8283-e7f84f59737e">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://database-joel-lucas.cd9p2xd1ldba.eu-west-2.rds.amazonaws.com:3306</jdbc-url>
-    </data-source>
-    <data-source source="LOCAL" name="crossword@database-joel-lucas.cd9p2xd1ldba.eu-west-2.rds.amazonaws.com" uuid="345b3dbe-1373-435d-bfb1-4e0e1c0be80d">
-      <driver-ref>mysql.8</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://database-joel-lucas.cd9p2xd1ldba.eu-west-2.rds.amazonaws.com:3306/crossword</jdbc-url>
+      <jdbc-url>jdbc:mysql:// database-joel-lucas.cpniwhvlthjs.eu-west-2.rds.amazonaws.com:3306/crossword</jdbc-url>
     </data-source>
   </component>
 </project>

@@ -14,6 +14,8 @@ public class Crossword {
     @OneToMany(mappedBy="crossword")
     private List<CrosswordClueMap> crosswordClues;
 
+    private Integer width;
+
     public Integer getId() {
         return id;
     }
@@ -38,6 +40,11 @@ public class Crossword {
         this.width = width;
     }
 
-    private Integer width;
+    public List<CrosswordClueMap> getCrosswordClues() {
+        return crosswordClues;
+    }
 
+    public void setCrosswordClues(List<CrosswordClueMap> crosswordClues) {
+        this.crosswordClues = crosswordClues;
+    }
 }

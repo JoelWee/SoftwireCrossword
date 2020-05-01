@@ -60,11 +60,11 @@ public class CrosswordClueMap {
         this.startCol = startCol;
     }
 
-    public Boolean getHorizontal() {
+    public Boolean getIsHorizontal() {
         return isHorizontal;
     }
 
-    public void setHorizontal(Boolean horizontal) {
+    public void setIsHorizontal(Boolean horizontal) {
         isHorizontal = horizontal;
     }
 
