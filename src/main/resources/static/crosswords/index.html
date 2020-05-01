@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
 
@@ -11,14 +11,23 @@
 </head>
 
 <body>
-<h1>Create a new crossword:</h1>
-<form action="http://localhost:8080/api/crosswords" method="POST">
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name"><br>
-    <label for="width">Width:</label><br>
-    <input type="text" id="width" name="width"><br>
-    <button type="submit">Submit</button>
-</form>
-
+<section>
+    <h1>Existing Crosswords</h1>
+    <tr th:each="crossword : ${crosswords}">
+        <td th:text="${crossword.id}">1</td>
+        <td><a href="#" th:text="${crossword.name}">Title ...</a></td>
+        <td th:text="${crossword.width}">Text ...</td>
+    </tr>
+</section>
+<section>
+    <h1>Create a new crossword:</h1>
+    <form action="http://localhost:8080/api/crosswords" method="POST">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="width">Width:</label><br>
+        <input type="text" id="width" name="width"><br>
+        <button type="submit">Submit</button>
+    </form>
+</section>
 </body>
 </html>

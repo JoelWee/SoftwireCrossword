@@ -7,5 +7,11 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://database-joel-lucas.cd9p2xd1ldba.eu-west-2.rds.amazonaws.com:3306</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="crossword@database-joel-lucas.cd9p2xd1ldba.eu-west-2.rds.amazonaws.com" uuid="345b3dbe-1373-435d-bfb1-4e0e1c0be80d">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://database-joel-lucas.cd9p2xd1ldba.eu-west-2.rds.amazonaws.com:3306/crossword</jdbc-url>
+    </data-source>
   </component>
 </project>

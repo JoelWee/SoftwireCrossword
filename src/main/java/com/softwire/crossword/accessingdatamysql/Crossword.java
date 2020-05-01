@@ -1,27 +1,18 @@
 package com.softwire.crossword.accessingdatamysql;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
-public class Clue {
+public class Crossword {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 
-    private String clue;
+    private String name;
 
-    private String answer;
-
-    private String topic;
-
-    private String style;
-
-    private String author;
-
-    private Integer difficulty;
+    @OneToMany(mappedBy="crossword")
+    private List<CrosswordClueMap> crosswordClues;
 
     public Integer getId() {
         return id;
@@ -31,51 +22,22 @@ public class Clue {
         this.id = id;
     }
 
-    public String getClue() {
-        return clue;
+    public String getName() {
+        return name;
     }
 
-    public void setClue(String clue) {
-        this.clue = clue;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getAnswer() {
-        return answer;
+    public Integer getWidth() {
+        return width;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public void setWidth(Integer width) {
+        this.width = width;
     }
 
-    public String getTopic() {
-        return topic;
-    }
+    private Integer width;
 
-    public void setTopic(String topic) {
-        this.topic = topic;
-    }
-
-    public String getStyle() {
-        return style;
-    }
-
-    public void setStyle(String style) {
-        this.style = style;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public Integer getDifficulty() {
-        return difficulty;
-    }
-
-    public void setDifficulty(Integer difficulty) {
-        this.difficulty = difficulty;
-    }
 }

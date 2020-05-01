@@ -1,17 +1,24 @@
 package com.softwire.crossword.accessingdatamysql;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
-public class Crossword {
+public class CrosswordClueMap {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 
-    private String name;
+    @ManyToOne
+    @JoinColumn(name="crossword_id")
+    private Crossword crossword;
+
+    @ManyToOne
+    @JoinColumn(name="clue_id")
+    private Clue clue;
+
+    private Integer startRow;
+    private Integer startCol;
+    private Boolean isHorizontal;
 
     public Integer getId() {
         return id;
@@ -21,22 +28,44 @@ public class Crossword {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Crossword getCrossword() {
+        return crossword;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCrossword(Crossword crossword) {
+        this.crossword = crossword;
     }
 
-    public Integer getWidth() {
-        return width;
+    public Clue getClue() {
+        return clue;
     }
 
-    public void setWidth(Integer width) {
-        this.width = width;
+    public void setClue(Clue clue) {
+        this.clue = clue;
     }
 
-    private Integer width;
+    public Integer getStartRow() {
+        return startRow;
+    }
+
+    public void setStartRow(Integer startRow) {
+        this.startRow = startRow;
+    }
+
+    public Integer getStartCol() {
+        return startCol;
+    }
+
+    public void setStartCol(Integer startCol) {
+        this.startCol = startCol;
+    }
+
+    public Boolean getHorizontal() {
+        return isHorizontal;
+    }
+
+    public void setHorizontal(Boolean horizontal) {
+        isHorizontal = horizontal;
+    }
 
 }

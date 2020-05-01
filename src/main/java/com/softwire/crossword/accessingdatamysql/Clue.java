@@ -1,9 +1,7 @@
 package com.softwire.crossword.accessingdatamysql;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Clue {
@@ -22,6 +20,9 @@ public class Clue {
     private String author;
 
     private Integer difficulty;
+
+    @OneToMany(mappedBy="clue")
+    private List<CrosswordClueMap> crosswordClues;
 
     public Integer getId() {
         return id;
