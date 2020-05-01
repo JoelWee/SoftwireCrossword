@@ -13,11 +13,20 @@
 <body>
 <section>
     <h1>Existing Crosswords</h1>
-    <tr th:each="crossword : ${crosswords}">
-        <td th:text="${crossword.id}">1</td>
-        <td><a href="#" th:text="${crossword.name}">Title ...</a></td>
-        <td th:text="${crossword.width}">Text ...</td>
-    </tr>
+    <table>
+        <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Width</th>
+        </thead>
+        <tbody>
+        <tr th:each="crossword : ${crosswords}">
+            <td th:text="${crossword.id}">1</td>
+            <td><a href="#" th:text="${crossword.name}">Title ...</a></td>
+            <td th:text="${crossword.width}">Text ...</td>
+        </tr>
+        </tbody>
+    </table>
 </section>
 <section>
     <h1>Create a new crossword:</h1>
