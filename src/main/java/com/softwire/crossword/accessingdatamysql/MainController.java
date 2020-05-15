@@ -1,7 +1,6 @@
 package com.softwire.crossword.accessingdatamysql;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +28,7 @@ public class MainController {
                       @RequestParam String author,
                       @RequestParam Integer difficulty) {
         Clue newClue = new Clue();
-        newClue.setClue(clue);
+        newClue.setClue(clue.toUpperCase());
         newClue.setAnswer(answer);
         newClue.setTopic(topic);
         newClue.setStyle(style);
@@ -69,24 +68,5 @@ public class MainController {
     Optional<Crossword> getCrossword(@PathVariable int id) {
         // This returns a JSON or XML with the clues
         return crosswordRepository.findById(id);
-    }
-
-    @PostMapping(path = "/crosswords/{crosswordId}/clue") // Map ONLY POST Requests
-    @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public @ResponseBody
-    void addClueToCrossword(@PathVariable int crosswordId,
-                              @RequestParam int clueId,
-                              @RequestParam int row,
-                              @RequestParam int col,
-                              @RequestParam(required = false) String isHorizontal) {
-        var crossword = crosswordRepository.findById(crosswordId).get();
-        var clue = clueRepository.findById(clueId).get();
-        var crosswordClueMap = new CrosswordClueMap();
-        crosswordClueMap.setCrossword(crossword);
-        crosswordClueMap.setClue(clue);
-        crosswordClueMap.setStartCol(col);
-        crosswordClueMap.setStartRow(row);
-        crosswordClueMap.setIsHorizontal("isHorizontal".equals(isHorizontal));
-        crosswordClueMapRepository.save(crosswordClueMap);
     }
 }

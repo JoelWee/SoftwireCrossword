@@ -37,22 +37,14 @@
     </table>
 </section>
 
-<div>
-    <div
-            class="grid-container"
-            th:style="${gridStyle}"
-    >
-        <div th:each="letter : ${grid}"  th:text="${letter}"></div>
-    </div>
-</div>
-
 
 <section>
     <h1>Add a new clue:</h1>
-    <form target="#" th:action="'http://localhost:8080/api/crosswords/' + ${crossword.id} +'/clue'" method="POST">
+    <h2 class="font-danger" th:if="error" th:text="${error}" />
+    <form th:action="'http://localhost:8080/crosswords/' + ${crossword.id}" method="POST">
         <label for="clue">Select a clue:</label>
         <select id="clue" name="clueId">
-            <option th:each="clue : ${allClues}" th:value="${clue.id}"
+            <option th:each="clue : ${availableClues}" th:value="${clue.id}"
                     th:text="'Description: ' + ${clue.clue} + ', Answer: ' + ${clue.answer}"/>
         </select><br>
         <label for="row">Row:</label>
@@ -64,5 +56,18 @@
         <button type="submit">Add</button>
     </form>
 </section>
+
+
+<div>
+    <div
+        class="grid-container"
+        th:style="${gridStyle}"
+    >
+        <div th:each="letter : ${grid}"  th:text="${letter}" th:classappend="${letter} ? 'filled-cell' : 'blank-cell'">
+        </div>
+    </div>
+</div>
+
+
 </body>
 </html>
